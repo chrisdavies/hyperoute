@@ -1,0 +1,37 @@
+{
+  "name": "hyperoute",
+  "version": "1.0.0",
+  "description": "A small (~600 byte) router for use with hyperapp",
+  "main": "hyperoute.js",
+  "directories": {},
+  "scripts": {
+    "test": "jasmine **/*.test.js",
+    "create": "npm run build && git commit -am $msg && git tag -s $msg -m $msg && git push -u && git push --tags",
+    "build": "mkdir -p dist && rollup hyperoute.js --format umd --name hyperoute | terser -o ./dist/hyperoute.min.js --compress --mangle --source-map && cat dist/hyperoute.min.js | gzip -9f | wc -c",
+    "release": "env msg=$(npm run -s version) npm run create && npm publish --access public",
+    "version": "echo $npm_package_name@$npm_package_version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisdavies/hyperoute"
+  },
+  "keywords": [
+    "routing",
+    "hyperapp",
+    "router"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Christopher Davies <github@christophilus.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisdavies/hyperoute/issues"
+  },
+  "homepage": "https://github.com/chrisdavies/hyperoute",
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "rollup": "^1.30.1",
+    "terser": "^4.6.3"
+  }
+}
