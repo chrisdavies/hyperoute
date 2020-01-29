@@ -6,7 +6,7 @@
   "directories": {},
   "scripts": {
     "test": "jasmine **/*.test.js",
-    "create": "npm run build && git commit -am $msg && git tag -s $msg -m $msg && git push -u && git push --tags",
+    "create": "npm run build && git commit -am $msg && git tag -s $msg -m $msg && git push && git push --tags",
     "build": "mkdir -p dist && rollup hyperoute.js --format umd --name hyperoute | terser -o ./dist/hyperoute.min.js --compress --mangle --source-map && cat dist/hyperoute.min.js | gzip -9f | wc -c",
     "release": "env msg=$(npm run -s version) npm run create && npm publish --access public",
     "version": "echo $npm_package_name@$npm_package_version"
