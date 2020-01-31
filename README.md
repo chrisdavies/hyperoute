@@ -13,7 +13,7 @@ This is based loosely on [rlite](https://github.com/chrisdavies/rlite) but with 
 
 ## Installation
 
-`npm install --save rlite-router`
+`npm install --save hyperoute`
 
 ## Usage
 
